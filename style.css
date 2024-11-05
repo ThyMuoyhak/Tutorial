@@ -1,0 +1,422 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4; /* Light background for the whole page */
+}
+
+/* Header */
+header {
+    font-family: "Koulen", serif;
+    background: #007BFF; /* Primary blue */
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky; /* Stick header on scroll */
+    top: 0;
+    z-index: 1000; /* Stay above other elements */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+h2 {
+    font-family: "Koulen", serif;
+}
+
+p {
+    font-family: "Noto Sans Khmer", serif;
+}
+
+header .logo {
+    font-size: 28px;
+    font-weight: bold;
+    font-family: "Noto Sans Khmer", serif;
+}
+
+/* Navbar Styles */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list li {
+    position: relative; /* Positioning for dropdown */
+    margin: 0 20px;
+}
+
+.nav-list li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-list li a:hover {
+    color: #FFD700; /* Gold on hover */
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+    display: none; /* Hidden by default */
+    position: absolute; /* Position it below the parent */
+    top: 100%; /* Position it directly below */
+    left: 0;
+    background: #0056b3; /* Darker blue */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow for dropdown */
+    border-radius: 5px; /* Rounded corners */
+    z-index: 1000; /* Stay above other elements */
+}
+
+.nav-list li:hover .dropdown {
+    display: block; /* Show on hover */
+}
+
+.dropdown li {
+    margin: 0; /* Reset margin */
+}
+
+.dropdown li a {
+    display: block; /* Make links fill the dropdown */
+    padding: 10px 20px; /* Padding for dropdown items */
+    color: #fff; /* White text for dropdown */
+    text-decoration: none; /* No underline */
+}
+
+.dropdown li a:hover {
+    background: #004085; /* Darker blue on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-list {
+        display: none; /* Hide nav list by default */
+        flex-direction: column; /* Stack items vertically */
+        width: 100%;
+        background: #007BFF; /* Same background as header */
+        position: absolute;
+        top: 60px; /* Position below header */
+        left: 0;
+        z-index: 1000; /* Stay above other elements */
+    }
+
+    .nav-list.active {
+        display: flex; /* Show when active */
+    }
+
+    .menu-toggle {
+        display: flex; /* Show hamburger menu */
+    }
+
+    .nav-list li {
+        margin: 10px 0; /* Reduce margin */
+        text-align: center; /* Center align */
+    }
+
+    .dropdown {
+        position: static; /* Reset position for mobile */
+        display: none; /* Keep dropdown hidden on mobile */
+    }
+
+    .nav-list li:hover .dropdown {
+        display: none; /* Disable dropdown on hover for mobile */
+    }
+}
+
+
+nav ul li:hover ul {
+    display: block;
+}
+
+a {
+    font-family: "Noto Sans Khmer", serif;
+}
+
+/* Hero Section */
+.hero {
+    background: url('https://www.shutterstock.com/image-vector/modern-hightech-background-presentations-websites-600nw-2181983721.jpg') no-repeat center center/cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    font-family: "Koulen", serif;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+}
+
+.hero-content {
+    position: relative;
+    padding: 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    color: #fff;
+    background: #FFD700; /* Gold */
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+    background: #FFC107; /* Lighter gold */
+    transform: scale(1.05); /* Slight grow effect */
+}
+
+/* Courses Section */
+.courses {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #ffffff; /* White background for contrast */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    border-radius: 8px;
+    margin: 20px; /* Margin to separate from other sections */
+}
+
+.courses h2 {
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #007BFF; /* Change heading color */
+}
+
+.course-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between cards */
+}
+
+/* Individual Course Card */
+.course-card {
+    background: #ffffff; /* White background for card */
+    border-radius: 15px;
+    padding: 20px;
+    width: 300px; /* Slightly wider card */
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s; /* Added background transition */
+    position: relative; /* Relative positioning for pseudo-elements */
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25); /* Increased shadow on hover */
+    background: #f1f1f1; /* Light gray background on hover */
+}
+
+.course-card h3 {
+    margin-bottom: 15px;
+    font-size: 26px; /* Increased font size for better readability */
+    color: #007BFF; /* Heading color */
+}
+
+.course-card p {
+    margin-bottom: 20px;
+    font-size: 16px; /* Adjusted font size */
+    color: #666; /* Dark gray for paragraph */
+}
+
+/* Button Style */
+.course-button {
+    display: inline-block;
+    padding: 12px 25px;
+    color: #fff;
+    background: #28a745; /* Green */
+    text-decoration: none;
+    border-radius: 25px; /* Fully rounded button */
+    font-size: 16px; /* Adjusted font size */
+    transition: background 0.3s, transform 0.3s;
+    position: relative; /* Relative positioning for hover effect */
+}
+
+.course-button:hover {
+    background: #218838; /* Darker green */
+    transform: scale(1.05); /* Slight grow effect */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #eaeaea; /* Light grey */
+    border-radius: 8px;
+    margin: 20px; /* Margin to separate from other sections */
+}
+
+.testimonials h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.testimonial {
+    background: #ffffff; /* White background for testimonials */
+    padding: 20px;
+    margin: 15px auto;
+    border-radius: 5px;
+    width: 90%; /* Responsive width */
+    max-width: 600px; /* Limit max width */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial h4 {
+    margin-top: 10px;
+    font-style: italic;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.newsletter {
+    margin-bottom: 20px;
+}
+
+.newsletter form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsletter input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 250px; /* Fixed width for input */
+}
+
+.newsletter button {
+    padding: 10px;
+    margin-left: 5px;
+    background: #FFD700; /* Gold */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.newsletter button:hover {
+    background: #FFC107; /* Lighter gold */
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* Header */
+    header {
+        flex-direction: column; /* Stack logo and nav */
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack navigation items */
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        margin: 5px 0; /* Reduce margin between nav items */
+    }
+
+    .cta-button {
+        font-size: 16px; /* Smaller button text */
+    }
+
+    .courses {
+        padding: 40px 10px; /* Reduce padding */
+    }
+
+    .courses h2 {
+        font-size: 28px; /* Smaller heading */
+    }
+
+    .course-cards {
+        flex-direction: column; /* Stack course cards */
+        align-items: center; /* Center cards */
+    }
+
+    .course-card {
+        width: 90%; /* Responsive card width */
+    }
+
+    /* Testimonial Section */
+    .testimonials {
+        padding: 40px 10px; /* Reduce padding */
+    }
+
+    /* Footer */
+    .newsletter input {
+        width: 70%; /* Wider input field */
+    }
+}
+
+@media (max-width: 480px) {
+    header .logo {
+        font-size: 24px; /* Smaller logo size */
+    }
+
+    .cta-button {
+        padding: 12px 25px; /* Smaller button */
+    }
+
+    .courses h2 {
+        font-size: 24px; /* Smaller heading */
+    }
+
+    .course-card h3 {
+        font-size: 22px; /* Smaller course title */
+    }
+
+    .course-card p {
+        font-size: 14px; /* Smaller paragraph text */
+    }
+
+    .testimonials h2 {
+        font-size: 28px; /* Smaller testimonial heading */
+    }
+
+    .footer-links a {
+        font-size: 14px; /* Smaller footer link */
+    }
+}
+
+

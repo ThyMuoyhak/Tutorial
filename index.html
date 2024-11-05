@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>រៀនកូដជាភាសាខ្មែរ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Khmer&family=Koulen&family=Noto+Sans+Khmer:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">@HakSimpleDev</div>
+        <nav>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-list" id="nav-list">
+                <li><a href="#">ទំព័រដើម</a></li>
+                <li>
+                    <a href="#">វគ្គសិក្សា</a>
+                    <ul class="dropdown">
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#">CSS</a></li>
+                        <li><a href="#">JavaScript</a></li>
+                        <li><a href="index.html">C++</a></li>
+                        <li><a href="python.html">Python</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">អំពី</a></li>
+                <li><a href="#">ទំនាក់ទំនង</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1 style="font-size: 50px;">រៀនកូដជាភាសាខ្មែរ</h1>
+            <p style="font-size: 20px;">ចាប់ផ្តើមដំណើររបស់អ្នកក្នុងការសរសេរកូដជាមួយមេរៀនដែលអានយ៉ាងងាយ!</p>
+        </div>
+    </section>
+
+    <section class="courses">
+        <h2>វគ្គសិក្សាដែលពេញនិយម</h2>
+        <div class="course-cards">
+            <div class="course-card">
+                <h3>C++</h3>
+                <p>ចូលទៅក្នុងការសរសេរ C++ និងយល់ដឹងអំពីគំនិតសំខាន់ៗរបស់វា។</p>
+                <a href="Cpp.html" class="course-button">ចាប់ផ្តើមរៀន</a>
+            </div>
+            <div class="course-card">
+                <h3>Python</h3>
+                <p>រៀនពី Python និងបង្កើតកម្មវិធីដំបូងរបស់អ្នក។</p>
+                <a href="python.html" class="course-button">ចាប់ផ្តើមរៀន</a>
+            </div>
+            <div class="course-card">
+                <h3>HTML</h3>
+                <p>រៀនគន្លងមូលដ្ឋាននៃ HTML និងបង្កើតគេហទំព័រ​ដំបូង​របស់អ្នក។</p>
+                <a href="#" class="course-button">ចាប់ផ្តើមរៀន</a>
+            </div>
+            <div class="course-card">
+                <h3>CSS</h3>
+                <p>ស្តាយគេហទំព័ររបស់អ្នកជាមួយ CSS និងធ្វើឲ្យវាអាចមើលបានជាទីគួរអោយចាប់អារម្មណ៍។</p>
+                <a href="#" class="course-button">ចាប់ផ្តើមរៀន</a>
+            </div>
+            <div class="course-card">
+                <h3>JavaScript</h3>
+                <p>ចាប់ផ្តើមជាមួយ JavaScript និងបន្ថែមអន្តរកម្មទៅលើគេហទំព័ររបស់អ្នក។</p>
+                <a href="#" class="course-button">ចាប់ផ្តើមរៀន</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        
+        <div class="footer-links">
+        </div>
+        <p>&copy; 2024 រក្សាសិទ្ធិគ្រប់យ៉ាង។</p>
+    </footer>
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+const navList = document.getElementById('nav-list');
+
+mobileMenu.addEventListener('click', () => {
+    navList.classList.toggle('active'); // Toggle active class
+});
+
+// Manage dropdown visibility on click for mobile
+navList.addEventListener('click', (event) => {
+    const dropdown = event.target.closest('li').querySelector('.dropdown');
+    if (dropdown) {
+        event.preventDefault(); // Prevent default link action
+        dropdown.classList.toggle('active');
+    }
+});
+
+    </script>
+</body>
+</html>

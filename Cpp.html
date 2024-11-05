@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>សិក្សា C++ - ពីមូលដ្ឋានដល់ OOP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Khmer&family=Koulen&family=Noto+Sans+Khmer:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>សិក្សា C++ - ពីមូលដ្ឋានដល់ OOP</header>
+    <div class="container">
+        <aside>
+            <h2 style="color: #0077cc;">និស្សិត ឆ្នាំទី២ៈ ធី មួយហាក់</h2>
+            <img width="100%" src="./img/photo_2024-09-06_21-28-43.jpg" alt="">
+            <button id="toggleSidebarButton">បញ្ជី មេរៀន C++ Programming</button>
+            <div id="sidebarContent">
+                <h2 style="color: red;">មាតិកា</h2>
+                <ul>
+                    <li><a href="#about">អំពី C++</a></li>
+                    <li><a href="#basics">មូលដ្ឋាន C++</a>
+                        <ul>
+                            <li><a href="#first">កូដដំបូង</a></li>
+                            <li><a href="#datatype">ប្រភេទទិន្នន័យ និងអថេរ</a></li>
+                            <li><a href="#input-output">ការបញ្ចូល និងបង្ហាញទិន្នន័យ</a></li>
+                            <li><a href="#operator">ប្រមាណវិធី</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#control-structures">គ្រប់គ្រងលូប និងលក្ខខណ្ឌ</a></li>
+                    <li><a href="#functions">មុខងារ (Function)</a></li>
+                    <li><a href="#arrays">អារេ (Array)</a></li>
+                    <li><a href="#oop">Object-Oriented Programming (OOP)</a></li>
+                    <li><a href="#advanced-oop">ពហុមុខងារនៃ OOP (Advanced OOP Concepts)</a></li>
+                </ul>
+            </div>
+            <a href="#question"><button id="home">សំណួរ និង ចម្លើយ</button></a>
+            <a href="index.html"><button id="home">Back to Home page</button></a>
+        </aside>
+        
+        <script>
+            const toggleButton = document.getElementById('toggleSidebarButton');
+            const sidebarContent = document.getElementById('sidebarContent');
+        
+            toggleButton.addEventListener('click', () => {
+                if (sidebarContent.style.display === 'none' || sidebarContent.style.display === '') {
+                    sidebarContent.style.display = 'block';
+                    toggleButton.textContent = 'មិនចង់បង្ហាញមេរៀន';
+                } else {
+                    sidebarContent.style.display = 'none';
+                    toggleButton.textContent = 'បង្ហាញមេរៀន';
+                }
+            });
+        </script>
+        
+    
+    <main>
+        <!-- About Section -->
+        <section id="about">
+            <h2>អំពី C++</h2>
+            <p>C++ គឺជាភាសាកម្មវិធីមួយដែលសម្បូរបែបនៅក្នុងប្រព័ន្ធកម្មវិធី។ វាជាសិល្បៈនៃការកំណត់និងដំណើរការប្រព័ន្ធមួយដោយប្រើលទ្ធផល និង OOP។</p>
+        </section>
+        
+        <!-- Basics Section -->
+        <section id="basics">
+            <h2>មូលដ្ឋាន C++</h2>
+
+            <!-- Basic Program Structure -->
+            <div class="lesson">
+                <h3 id="first">កូដដំបូង</h3>
+                <p>យើងចាប់ផ្ដើម C++ ដោយប្រើ <code>#include &lt;iostream&gt;</code> និងមុខងារ <code>main()</code>។</p>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout &lt;&lt; "សួស្តី ពិភពលោក!" &lt;&lt; std::endl;
+    return 0;
+}</code></pre>
+                <p><strong>លទ្ធផល:</strong></p>
+                <pre><code>សួស្តី ពិភពលោក!</code></pre>
+            </div>
+
+            <!-- Variables and Data Types -->
+            <div class="lesson">
+                <h3 id="datatype">ប្រភេទទិន្នន័យ និងអថេរ</h3>
+                <p>ប្រភេទទិន្នន័យមានដូចជា <code>int</code>, <code>float</code>, <code>double</code>, និង <code>string</code> ។ ឧទាហរណ៍៖</p>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    int age = 25;
+    double height = 1.75;
+    std::string name = "Chantha";
+    std::cout &lt;&lt; "ឈ្មោះ: " &lt;&lt; name &lt;&lt; ", អាយុ: " &lt;&lt; age &lt;&lt; ", កម្ពស់: " &lt;&lt; height &lt;&lt; " ម៉ែត្រ" &lt;&lt; std::endl;
+    return 0;
+}</code></pre>
+                <p><strong>លទ្ធផល:</strong></p>
+                <pre><code>ឈ្មោះ: Chantha, អាយុ: 25, កម្ពស់: 1.75 ម៉ែត្រ</code></pre>
+            </div>
+
+            <!-- Input and Output -->
+            <div id="input-output" class="lesson">
+                <h3>ការបញ្ចូល និងបង្ហាញទិន្នន័យ</h3>
+                <p>ប្រើ <code>std::cin</code> ដើម្បីបញ្ចូលទិន្នន័យ និង <code>std::cout</code> ដើម្បីបង្ហាញទិន្នន័យ។</p>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int age;
+    std::cout &lt;&lt; "បញ្ចូលអាយុរបស់អ្នក: ";
+    std::cin &gt;&gt; age;
+    std::cout &lt;&lt; "អាយុរបស់អ្នកគឺ " &lt;&lt; age &lt;&lt; std::endl;
+    return 0;
+}</code></pre>
+                <p><strong>លទ្ធផល:</strong></p>
+                <pre><code>បញ្ចូលអាយុរបស់អ្នក: 30
+អាយុរបស់អ្នកគឺ 30</code></pre>
+            </div>
+
+            <!-- Arithmetic Operators -->
+            <div id="operator" class="lesson">
+                <h3>ប្រមាណវិធី</h3>
+                <p>ប្រមាណវិធីសម្រាប់គណនា: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> ។</p>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int a = 10, b = 3;
+    std::cout &lt;&lt; "ផលបូក: " &lt;&lt; a + b &lt;&lt; std::endl;
+    std::cout &lt;&lt; "ផ្លូវចែក: " &lt;&lt; a / b &lt;&lt; std::endl;
+    std::cout &lt;&lt; "សំណល់: " &lt;&lt; a % b &lt;&lt; std::endl;
+    return 0;
+}</code></pre>
+                <p><strong>លទ្ធផល:</strong></p>
+                <pre><code>ផលបូក: 13
+ផ្លូវចែក: 3
+សំណល់: 1</code></pre>
+            </div>
+            <div id="operators" class="lesson">
+                <h3>ប្រមាណវិធីផ្ដល់តម្លៃ</h3>
+                <p>ប្រមាណវិធីផ្ដល់តម្លៃ (Assignment Operators) ប្រើសម្រាប់ផ្ដល់តម្លៃទៅអថេរ។</p>
+                <pre><code>=, +=, -=, *=, /=, %=, &=, |=, ^=, <<=, >>=</code></pre>
+                <p><strong>ឧទាហរណ៍:</strong></p>
+                <pre><code>int a = 5;
+            a += 3;  // តម្លៃថ្មីនៃ a គឺ 8
+            a -= 2;  // តម្លៃថ្មីនៃ a គឺ 6</code></pre>
+            
+                <h3>ប្រមាណវិធីប្រៀបធៀប</h3>
+                <p>ប្រមាណវិធីប្រៀបធៀប (Comparison Operators) ប្រើសម្រាប់ធ្វើការ​ប្រៀបធៀបតម្លៃទាំងពីរ។</p>
+                <pre><code>==, !=, >, <, >=, <=</code></pre>
+                <p><strong>ឧទាហរណ៍:</strong></p>
+                <pre><code>int a = 5, b = 10;
+            bool result = (a < b);  // result គឺ true</code></pre>
+            
+                <h3>ប្រមាណវិធីតុក្រិត</h3>
+                <p>ប្រមាណវិធីតុក្រិត (Logical Operators) ប្រើសម្រាប់បញ្ចូលតម្លៃតុក្រិត (true/false) និងបង្កើតលក្ខខណ្ឌតុក្រិត។</p>
+                <pre><code>&&, ||, !</code></pre>
+                <p><strong>ឧទាហរណ៍:</strong></p>
+                <pre><code>bool x = true, y = false;
+            bool result = (x && y);   // result គឺ false
+            result = (x || y);       // result គឺ true
+            result = !x;             // result គឺ false</code></pre>
+            </div>
+            
+        </section>
+
+        <!-- Control Structures Section -->
+        <section id="control-structures">
+            <h2>គ្រប់គ្រងលូប និងលក្ខខណ្ឌ</h2>
+
+            <!-- If Statement -->
+            <div class="lesson">
+                <h3>If Statement</h3>
+                <p>ប្រើ if ដើម្បីត្រួតពិនិត្យលទ្ធផល</p>
+                <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int score = 90;
+    if (score &gt;= 80) {
+        std::cout &lt;&lt; "ជាប់!" &lt;&lt; std::endl;
+    } else {
+        std::cout &lt;&lt; "សូមព្យាយាមម្តងទៀត!" &lt;&lt; std::endl;
+    }
+    return 0;
+}</code></pre>
+                <p><strong>លទ្ធផល:</strong></p>
+                <pre><code>ជាប់!</code></pre>
+            </div>
+
+            <!-- Control Structures Section -->
+
+            <!-- switch -->
+            <h2>Switch</h2>
+            <p>ការប្រើប្រាស់​ <code>switch</code> ដើម្បីគ្រប់គ្រងលទ្ធផលខុសគ្នា នៅពេលមានលក្ខខណ្ឌជាច្រើន។</p>
+            <pre><code>#include &lt;iostream&gt;
+        
+        int main() {
+            int day = 3;
+        
+            switch (day) {
+                case 1:
+                    std::cout &lt;&lt; "ថ្ងៃច័ន្ទ" &lt;&lt; std::endl;
+                    break;
+                case 2:
+                    std::cout &lt;&lt; "ថ្ងៃអង្គារ" &lt;&lt; std::endl;
+                    break;
+                case 3:
+                    std::cout &lt;&lt; "ថ្ងៃពុធ" &lt;&lt; std::endl;
+                    break;
+                case 4:
+                    std::cout &lt;&lt; "ថ្ងៃព្រហស្បតិ៍" &lt;&lt; std::endl;
+                    break;
+                case 5:
+                    std::cout &lt;&lt; "ថ្ងៃសុក្រ" &lt;&lt; std::endl;
+                    break;
+                case 6:
+                    std::cout &lt;&lt; "ថ្ងៃសៅរ៍" &lt;&lt; std::endl;
+                    break;
+                case 7:
+                    std::cout &lt;&lt; "ថ្ងៃអាទិត្យ" &lt;&lt; std::endl;
+                    break;
+                default:
+                    std::cout &lt;&lt; "មិនមែនជាថ្ងៃដែលត្រឹមត្រូវទេ" &lt;&lt; std::endl;
+            }
+        
+            return 0;
+        }</code></pre>
+            <p><strong>លទ្ធផល:</strong></p>
+            <pre><code>ថ្ងៃពុធ</code></pre>
+    <!-- For Loop -->
+    <div class="lesson">
+        <h3>For Loop</h3>
+        <pre><code id="code6">#include &lt;iostream&gt;
+
+int main() {
+    for (int i = 0; i &lt; 5; i++) {
+        std::cout &lt;&lt; "លេខ: " &lt;&lt; i &lt;&lt; std::endl;
+    }
+    return 0;
+}</code></pre>
+        
+        <p><strong>លទ្ធផល:</strong></p>
+        <pre><code>លេខ: 0
+លេខ: 1
+លេខ: 2
+លេខ: 3
+លេខ: 4</code></pre>
+    </div>
+
+    <!-- While Loop -->
+    <div class="lesson">
+        <h3>While Loop</h3>
+        <p>ប្រើ while ដើម្បីលើកឡើងទាន់ពិតប្រាកដ</p>
+        <pre><code id="code7">#include &lt;iostream&gt;
+
+int main() {
+    int i = 0;
+    while (i &lt; 5) {
+        std::cout &lt;&lt; "លេខ: " &lt;&lt; i &lt;&lt; std::endl;
+        i++;
+    }
+    return 0;
+}</code></pre>
+        
+        <p><strong>លទ្ធផល:</strong></p>
+        <pre><code>លេខ: 0
+លេខ: 1
+លេខ: 2
+លេខ: 3
+លេខ: 4</code></pre>
+    </div>
+
+    <!-- Do-While Loop -->
+    <div class="lesson">
+        <h3>Do-While Loop</h3>
+        <p>ប្រើ do-while ដើម្បីធ្វើការទៅមុខយ៉ាងហោចណាស់មួយដង</p>
+        <pre><code id="code8">#include &lt;iostream&gt;
+
+int main() {
+    int i = 0;
+    do {
+        std::cout &lt;&lt; "លេខ: " &lt;&lt; i &lt;&lt; std::endl;
+        i++;
+    } while (i &lt; 5);
+    return 0;
+}</code></pre>
+        
+        <p><strong>លទ្ធផល:</strong></p>
+        <pre><code>លេខ: 0
+លេខ: 1
+លេខ: 2
+លេខ: 3
+លេខ: 4</code></pre>
+    </div>
+</section>
+
+
+        <!-- Functions Section -->
+        <section id="functions">
+            <h2>មុខងារ (Function)</h2>
+            <p>ការប្រើប្រាស់មុខងារដើម្បីសម្រួលការសរសេរកូដ។</p>
+        
+            <h3>1. មុខងារដែលមានការបង្រួបបង្រួម (Return Function)</h3>
+            <p>មុខងារដែលមានការបង្រួបបង្រួមគឺជាមុខងារដែលមានការទទួលការបង្រួបមួយ។</p>
+            <pre><code>#include &lt;iostream&gt;
+        
+        int add(int a, int b) {
+            return a + b;
+        }
+        
+        int main() {
+            int result = add(5, 3);
+            std::cout &lt;&lt; "សមាសភាព: " &lt;&lt; result &lt;&lt; std::endl; // Output: 8
+            return 0;
+        }</code></pre>
+            <p><strong>លទ្ធផល:</strong></p>
+            <pre><code>សមាសភាព: 8</code></pre>
+        
+            <h3>2. មុខងារដែលមិនមានការបង្រួប (Non-Return Function)</h3>
+            <p>មុខងារដែលមិនមានការបង្រួបគឺជាមុខងារដែលមិនត្រូវត្រឡប់ជាចម្លើយ។</p>
+            <pre><code>#include &lt;iostream&gt;
+        
+        void printMessage() {
+            std::cout &lt;&lt; "សួស្តី ពិភពលោក!" &lt;&lt; std::endl;
+        }
+        
+        int main() {
+            printMessage(); // Output: Hello World!
+            return 0;
+        }</code></pre>
+            <p><strong>លទ្ធផល:</strong></p>
+            <pre><code>សួស្តី ពិភពលោក!</code></pre>
+        
+            <h3>3. មុខងារដែលមានប៉ារ៉ាម៉ែត្រ (Function with Parameters)</h3>
+            <p>មុខងារដែលមានប៉ារ៉ាម៉ែត្រ៖</p>
+            <pre><code>#include &lt;iostream&gt;
+        #include &lt;string&gt;
+        
+        void greet(std::string name) {
+            std::cout &lt;&lt; "សួស្តី " &lt;&lt; name &lt;&lt; "!" &lt;&lt; std::endl;
+        }
+        
+        int main() {
+            greet("សុខា"); // Output: Hello Sokha!
+            return 0;
+        }</code></pre>
+            <p><strong>លទ្ធផល:</strong></p>
+            <pre><code>សួស្តី សុខា!</code></pre>
+        
+            <h3>4. មុខងារដែលគ្មានប៉ារ៉ាម៉ែត្រ (Function without Parameters)</h3>
+            <p>មុខងារដែលគ្មានប៉ារ៉ាម៉ែត្រ៖</p>
+            <pre><code>#include &lt;iostream&gt;
+        
+        void displayTime() {
+            std::cout &lt;&lt; "ម៉ោងបច្ចុប្បន្នគឺ 10:00 AM" &lt;&lt; std::endl;
+        }
+        
+        int main() {
+            displayTime(); // Output: Current time is 10:00 AM
+            return 0;
+        }</code></pre>
+            <p><strong>លទ្ធផល:</strong></p>
+            <pre><code>ម៉ោងបច្ចុប្បន្នគឺ 10:00 AM</code></pre>
+        
+            <h3>5. មុខងារបង្កើតអង្គភាព (Class Method)</h3>
+            <p>មុខងារបង្កើតអង្គភាពគឺជាមុខងារ​ដែលនៅក្នុងអង្គភាព។</p>
+            <pre><code>#include &lt;iostream&gt;
+        
+        class MyClass {
+        public:
+            void displayMessage() {
+                std::cout &lt;&lt; "សួស្តី ពិភពលោក ពី MyClass!" &lt;&lt; std::endl;
+            }
+        };
+        
+        int main() {
+            MyClass obj;
+            obj.displayMessage(); // Output: Hello World from MyClass!
+            return 0;
+        }</code></pre>
+            <p><strong>លទ្ធផល:</strong></p>
+            <pre><code>សួស្តី ពិភពលោក ពី MyClass!</code></pre>
+        
+            <h3>6. មុខងារដែលប្រើប្រាស់បណ្ណាល័យ (Library Function)</h3>
+            <p>ការប្រើប្រាស់មុខងារពីបណ្ណាល័យ។</p>
+            <pre><code>#include &lt;iostream&gt;
+        #include &lt;cmath&gt;
+        
+        int main() {
+            double result = std::sqrt(16.0);
+            std::cout &lt;&lt; "ដេកសម្រាប់ 16 គឺ: " &lt;&lt; result &lt;&lt; std::endl; // Output: 4
+            return 0;
+        }</code></pre>
+            <p><strong>លទ្ធផល:</strong></p>
+            <pre><code>ដេកសម្រាប់ 16 គឺ: 4</code></pre>
+        </section>
+        
+
+        <!-- Arrays Section -->
+<section id="arrays">
+    <h2>អារេ (Arrays)</h2>
+
+    <!-- Single-Dimensional Arrays -->
+    <div class="lesson">
+        <h3>អារេមួយទិស (Single-Dimensional Array)</h3>
+        <p>អារេមួយទិសអាចផ្ទុកតម្លៃជាច្រើនជាប់លាប់គ្នា។</p>
+        <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int numbers[5] = {10, 20, 30, 40, 50};
+    for (int i = 0; i &lt; 5; i++) {
+        std::cout &lt;&lt; "Value at index " &lt;&lt; i &lt;&lt; ": " &lt;&lt; numbers[i] &lt;&lt; std::endl;
+    }
+    return 0;
+}</code></pre>
+        <p><strong>លទ្ធផល:</strong></p>
+        <pre><code>Value at index 0: 10
+Value at index 1: 20
+Value at index 2: 30
+Value at index 3: 40
+Value at index 4: 50</code></pre>
+    </div>
+
+    <!-- Multi-Dimensional Arrays -->
+    <div class="lesson">
+        <h3>អារេពីរទិស (Multi-Dimensional Array)</h3>
+        <p>អារេពីរទិសអាចផ្ទុកតម្លៃដូចជាតារាង។</p>
+        <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int matrix[2][3] = {
+        {1, 2, 3},
+        {4, 5, 6}
+    };
+    for (int i = 0; i &lt; 2; i++) {
+        for (int j = 0; j &lt; 3; j++) {
+            std::cout &lt;&lt; "Value at (" &lt;&lt; i &lt;&lt; "," &lt;&lt; j &lt;&lt; "): " &lt;&lt; matrix[i][j] &lt;&lt; " ";
+        }
+        std::cout &lt;&lt; std::endl;
+    }
+    return 0;
+}</code></pre>
+        <p><strong>លទ្ធផល:</strong></p>
+        <pre><code>Value at (0,0): 1 Value at (0,1): 2 Value at (0,2): 3 
+Value at (1,0): 4 Value at (1,1): 5 Value at (1,2): 6</code></pre>
+    </div>
+
+    <!-- Dynamic Arrays with Pointers -->
+    <div class="lesson">
+        <h3>អារេមិនថេរ (Dynamic Array) ដោយប្រើ Pointer</h3>
+        <p>អាចបង្កើតអារេមិនថេរដែលអាចផ្លាស់ប្តូរទំហំ។</p>
+        <pre><code>#include &lt;iostream&gt;
+
+int main() {
+    int size;
+    std::cout &lt;&lt; "បញ្ចូលទំហំអារេ: ";
+    std::cin &gt;&gt; size;
+
+    int* arr = new int[size];
+    for (int i = 0; i &lt; size; i++) {
+        arr[i] = i * 2;
+    }
+
+    std::cout &lt;&lt; "អារេត្រូវបានបង្កើតជោគជ័យ:" &lt;&lt; std::endl;
+    for (int i = 0; i &lt; size; i++) {
+        std::cout &lt;&lt; arr[i] &lt;&lt; " ";
+    }
+
+    delete[] arr; // លុបអារេដើម្បីទាន់សម័យ
+    return 0;
+}</code></pre>
+        <p><strong>លទ្ធផល:</strong></p>
+        <pre><code>បញ្ចូលទំហំអារេ: 5
+អារេត្រូវបានបង្កើតជោគជ័យ:
+0 2 4 6 8</code></pre>
+    </div>
+</section>
+
+<!-- OOP Section -->
+<section id="oop">
+    <h2>Object-Oriented Programming (OOP)</h2>
+
+    <!-- Classes and Objects -->
+    <div class="lesson">
+        <h3>Classes និង Objects</h3>
+        <p>Classes ជាទម្រង់ដែលបញ្ជាក់ពីមុខងារ និងលក្ខណៈរបស់ Object មួយ។</p>
+        <pre><code>#include &lt;iostream&gt;
+
+class Car {
+public:
+    std::string brand;
+    int year;
+
+    void displayInfo() {
+        std::cout &lt;&lt; "Brand: " &lt;&lt; brand &lt;&lt; ", Year: " &lt;&lt; year &lt;&lt; std::endl;
+    }
+};
+
+int main() {
+    Car car1;
+    car1.brand = "Toyota";
+    car1.year = 2023;
+    car1.displayInfo();
+
+    return 0;
+}</code></pre>
+        <p><strong>លទ្ធផល:</strong></p>
+        <pre><code>Brand: Toyota, Year: 2023</code></pre>
+    </div>
+
+    <!-- Constructor and Destructor -->
+    <div class="lesson">
+        <h3>Constructor និង Destructor</h3>
+        <p>Constructor ត្រូវបានអនុវត្តនៅពេល Object ត្រូវបានបង្កើត និង Destructor នៅពេល Object នោះត្រូវបានបំផ្លាញ។</p>
+        <pre><code>#include &lt;iostream&gt;
+
+class Car {
+public:
+    Car() {
+        std::cout &lt;&lt; "Car Created!" &lt;&lt; std::endl;
+    }
+
+    ~Car() {
+        std::cout &lt;&lt; "Car Destroyed!" &lt;&lt; std::endl;
+    }
+};
+
+int main() {
+    Car car1;
+    return 0;
+}</code></pre>
+        <p><strong>លទ្ធផល:</strong></p>
+        <pre><code>Car Created!
+Car Destroyed!</code></pre>
+    </div>
+
+    <!-- Inheritance -->
+    <div class="lesson">
+        <h3>Inheritance</h3>
+        <p>Inheritance អនុញ្ញាតឱ្យបង្កើត Class ថ្មីដោយផ្អែកលើ Class មួយផ្សេងទៀត។</p>
+        <pre><code>#include &lt;iostream&gt;
+
+class Vehicle {
+public:
+    int speed = 0;
+    void accelerate(int increment) {
+        speed += increment;
+        std::cout &lt;&lt; "Speed: " &lt;&lt; speed &lt;&lt; " km/h" &lt;&lt; std::endl;
+    }
+};
+
+class Car : public Vehicle {
+public:
+    void honk() {
+        std::cout &lt;&lt; "ប៊ីបប៊ីប!" &lt;&lt; std::endl;
+    }
+};
+
+int main() {
+    Car myCar;
+    myCar.accelerate(20);
+    myCar.honk();
+    return 0;
+}</code></pre>
+        <p><strong>លទ្ធផល:</strong></p>
+        <pre><code>Speed: 20 km/h
+ប៊ីបប៊ីប!</code></pre>
+    </div>
+
+    <!-- Polymorphism -->
+    <div class="lesson">
+        <h3>Polymorphism</h3>
+        <p>Polymorphism អនុញ្ញាតឱ្យ method នឹងមានឈ្មោះដូចគ្នាតែមានពិការការងារផ្សេងគ្នា។</p>
+        <pre><code>#include &lt;iostream&gt;
+
+class Animal {
+public:
+    virtual void sound() {
+        std::cout &lt;&lt; "Animal sound!" &lt;&lt; std::endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    void sound() override {
+        std::cout &lt;&lt; "Woof!" &lt;&lt; std::endl;
+    }
+};
+
+class Cat : public Animal {
+public:
+    void sound() override {
+        std::cout &lt;&lt; "Meow!" &lt;&lt; std::endl;
+    }
+};
+
+int main() {
+    Animal* animal1 = new Dog();
+    Animal* animal2 = new Cat();
+
+    animal1->sound();
+    animal2->sound();
+
+    delete animal1;
+    delete animal2;
+    return 0;
+}</code></pre>
+        <p><strong>លទ្ធផល:</strong></p>
+        <pre><code>Woof!
+Meow!</code></pre>
+    </div>
+</section>
+<!-- Advanced OOP Section -->
+<section id="advanced-oop">
+    <h2>ពហុមុខងារនៃ OOP (Advanced OOP Concepts)</h2>
+
+    <!-- Encapsulation -->
+    <div class="lesson">
+        <h3>Encapsulation</h3>
+        <p>Encapsulation គឺជាការការពារទិន្នន័យនៅក្នុង Class ហើយមានការគ្រប់គ្រងចូលប្រើតាមវិធីសាស្ត្រ។</p>
+        <pre><code>#include &lt;iostream&gt;
+
+class BankAccount {
+private:
+    double balance;
+
+public:
+    BankAccount(double initialBalance) {
+        balance = initialBalance;
+    }
+
+    void deposit(double amount) {
+        if (amount &gt; 0) {
+            balance += amount;
+            std::cout &lt;&lt; "Deposited: " &lt;&lt; amount &lt;&lt; ", New Balance: " &lt;&lt; balance &lt;&lt; std::endl;
+        }
+    }
+
+    void withdraw(double amount) {
+        if (amount &lt;= balance) {
+            balance -= amount;
+            std::cout &lt;&lt; "Withdrawn: " &lt;&lt; amount &lt;&lt; ", New Balance: " &lt;&lt; balance &lt;&lt; std::endl;
+        } else {
+            std::cout &lt;&lt; "Insufficient funds!" &lt;&lt; std::endl;
+        }
+    }
+
+    double getBalance() const {
+        return balance;
+    }
+};
+
+int main() {
+    BankAccount account(1000.0);
+    account.deposit(500);
+    account.withdraw(200);
+    std::cout &lt;&lt; "Final Balance: " &lt;&lt; account.getBalance() &lt;&lt; std::endl;
+    return 0;
+}</code></pre>
+        <p><strong>លទ្ធផល:</strong></p>
+        <pre><code>Deposited: 500, New Balance: 1500
+Withdrawn: 200, New Balance: 1300
+Final Balance: 1300</code></pre>
+    </div>
+
+    <!-- Operator Overloading -->
+    <div class="lesson">
+        <h3>Operator Overloading</h3>
+        <p>Operator Overloading អនុញ្ញាតឱ្យប្រើប្រមាណវិធីសម្រាប់ Class ដែលបានកំណត់ដោយអ្នកប្រើ។</p>
+        <pre><code>#include &lt;iostream&gt;
+
+class Complex {
+private:
+    double real, imag;
+
+public:
+    Complex(double r = 0, double i = 0) : real(r), imag(i) {}
+
+    Complex operator + (const Complex &amp;other) {
+        return Complex(real + other.real, imag + other.imag);
+    }
+
+    void display() const {
+        std::cout &lt;&lt; real &lt;&lt; " + " &lt;&lt; imag &lt;&lt; "i" &lt;&lt; std::endl;
+    }
+};
+
+int main() {
+    Complex c1(3.0, 2.0), c2(1.5, 4.5);
+    Complex c3 = c1 + c2;
+    c3.display();
+    return 0;
+}</code></pre>
+        <p><strong>លទ្ធផល:</strong></p>
+        <pre><code>4.5 + 6.5i</code></pre>
+    </div>
+
+    <!-- Abstract Classes and Polymorphism -->
+    <div class="lesson">
+        <h3>Abstract Classes និង Polymorphism</h3>
+        <p>Abstract Class មានមុខងារដែលមិនបានអនុវត្ត (pure virtual function) ហើយត្រូវបានអនុវត្តក្នុង Class កូន។</p>
+        <pre><code>#include &lt;iostream&gt;
+
+class Shape {
+public:
+    virtual void draw() = 0; // Pure virtual function
+};
+
+class Circle : public Shape {
+public:
+    void draw() override {
+        std::cout &lt;&lt; "Drawing Circle" &lt;&lt; std::endl;
+    }
+};
+
+class Rectangle : public Shape {
+public:
+    void draw() override {
+        std::cout &lt;&lt; "Drawing Rectangle" &lt;&lt; std::endl;
+    }
+};
+
+int main() {
+    Shape* shape1 = new Circle();
+    Shape* shape2 = new Rectangle();
+
+    shape1->draw();
+    shape2->draw();
+
+    delete shape1;
+    delete shape2;
+    return 0;
+}</code></pre>
+        <p><strong>លទ្ធផល:</strong></p>
+        <pre><code>Drawing Circle
+Drawing Rectangle</code></pre>
+    </div>
+</section>
+<!-- Templates, Exception Handling, and File I/O Section -->
+<section id="advanced-topics">
+    <h2>ប្រធានបទកម្រិតខ្ពស់ (Advanced C++ Topics)</h2>
+
+    <!-- Templates -->
+    <div class="lesson">
+        <h3>Templates</h3>
+        <p>Templates អនុញ្ញាតឱ្យបង្កើត Class ឬ Function មួយដែលអាចប្រើជាមួយប្រភេទទិន្នន័យផ្សេងៗ។</p>
+        <pre><code>#include &lt;iostream&gt;
+
+template &lt;typename T&gt;
+T add(T a, T b) {
+    return a + b;
+}
+
+int main() {
+    std::cout &lt;&lt; "Sum of integers: " &lt;&lt; add(3, 4) &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Sum of floats: " &lt;&lt; add(3.5, 4.5) &lt;&lt; std::endl;
+    return 0;
+}</code></pre>
+        <p><strong>លទ្ធផល:</strong></p>
+        <pre><code>Sum of integers: 7
+Sum of floats: 8.0</code></pre>
+    </div>
+
+    <!-- Exception Handling -->
+    <div class="lesson">
+        <h3>Exception Handling</h3>
+        <p>Exception Handling គឺជាវិធីសាស្ត្រដើម្បីដោះស្រាយកំហុសក្នុងកម្មវិធីដោយប្រើ try, catch និង throw។</p>
+        <pre><code>#include &lt;iostream&gt;
+
+double divide(double a, double b) {
+    if (b == 0) {
+        throw "Division by zero error!";
+    }
+    return a / b;
+}
+
+int main() {
+    try {
+        std::cout &lt;&lt; "10 / 2 = " &lt;&lt; divide(10, 2) &lt;&lt; std::endl;
+        std::cout &lt;&lt; "10 / 0 = " &lt;&lt; divide(10, 0) &lt;&lt; std::endl;
+    } catch (const char* msg) {
+        std::cout &lt;&lt; "Error: " &lt;&lt; msg &lt;&lt; std::endl;
+    }
+    return 0;
+}</code></pre>
+        <p><strong>លទ្ធផល:</strong></p>
+        <pre><code>10 / 2 = 5
+Error: Division by zero error!</code></pre>
+    </div>
+
+    <!-- File I/O -->
+    <div class="lesson">
+        <h3>File Input/Output (File I/O)</h3>
+        <p>File I/O អនុញ្ញាតឱ្យកម្មវិធីអាន និងសរសេរទិន្នន័យទៅក្នុងឯកសារ។</p>
+        <pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+
+int main() {
+    // Writing to a file
+    std::ofstream outFile("example.txt");
+    outFile &lt;&lt; "Hello, World!" &lt;&lt; std::endl;
+    outFile &lt;&lt; "C++ File I/O Example" &lt;&lt; std::endl;
+    outFile.close();
+
+    // Reading from a file
+    std::ifstream inFile("example.txt");
+    std::string line;
+    std::cout &lt;&lt; "Content of example.txt:" &lt;&lt; std::endl;
+    while (std::getline(inFile, line)) {
+        std::cout &lt;&lt; line &lt;&lt; std::endl;
+    }
+    inFile.close();
+    return 0;
+}</code></pre>
+        <p><strong>លទ្ធផល:</strong></p>
+        <pre><code>Content of example.txt:
+Hello, World!
+C++ File I/O Example</code></pre>
+    </div>
+    </section>
+    <section id="question">
+        <h2>សំណួរ និង ចម្លើយ C++</h2>
+        <div class="qa-item" onclick="toggleAnswer(this)">
+            <div class="question">1. C++ គឺជាអ្វី?</div>
+            <div class="answer">C++ គឺជាស្ថាបត្យកម្មកូដដែលមានកម្រិតខ្ពស់ ដែលគាំទ្រការសរសេរកម្មវិធីមើលមុខវត្ថុ។</div>
+        </div>
+        <div class="qa-item" onclick="toggleAnswer(this)">
+            <div class="question">2. លក្ខណៈគ្រប់គ្រងដើមៗនៃ C++ គឺអ្វីខ្លះ?</div>
+            <div class="answer">លក្ខណៈគ្រប់គ្រងដើមៗរួមមាន classes, objects, inheritance, polymorphism, encapsulation, និង abstraction។</div>
+        </div>
+        <div class="qa-item" onclick="toggleAnswer(this)">
+            <div class="question">3. តើ class ក្នុង C++ គឺជាអ្វី?</div>
+            <div class="answer">class គឺជាប្រភេទទិន្នន័យដែលអ្នកប្រើបានកំណត់ដែលតំណាងឱ្យផែនការសម្រាប់ការបង្កើត objects។</div>
+        </div>
+        <div class="qa-item" onclick="toggleAnswer(this)">
+            <div class="question">4. តើ Object ក្នុង C++ គឺជាអ្វី?</div>
+            <div class="answer">Object គឺជាករណីមួយនៃ class ដែលមានទិន្នន័យ និង functions សម្រាប់គ្រប់គ្រងទិន្នន័យនោះ។</div>
+        </div>
+        <div class="qa-item" onclick="toggleAnswer(this)">
+            <div class="question">5. តើការទាញយកមុខងារ (Inheritance) ក្នុង C++ គឺជាអ្វី?</div>
+            <div class="answer">Inheritance អនុញ្ញាតឱ្យ class ថ្មីទទួលសេរីភាព និងវិធីសាស្ត្រពី class មួយដែលមានស្រាប់ ជម្រើសចំពោះការប្រើប្រាស់កូដ។</div>
+        </div>
+        <div class="qa-item" onclick="toggleAnswer(this)">
+            <div class="question">6. តើ polymorphism ក្នុង C++ គឺជាអ្វី?</div>
+            <div class="answer">Polymorphism អនុញ្ញាតឱ្យ functions ធ្វើអ្វីខុសគ្នានៅលើវត្ថុដែលវាស្ថិតនៅលើ វាសុខស្រួលចំពោះការប្រែប្រួល។</div>
+        </div>
+        <div class="qa-item" onclick="toggleAnswer(this)">
+            <div class="question">7. តើ encapsulation ក្នុង C++ គឺជាអ្វី?</div>
+            <div class="answer">Encapsulation គឺជាការបង្រួមទិន្នន័យ និង functions ដែលអនុវត្តនៅលើទិន្នន័យនោះក្នុងឯកតាមួយ ដើម្បីបង្កើតការប្រយុទ្ធចំពោះឯកសារមួយចំនួន។</div>
+        </div>
+        <div class="qa-item" onclick="toggleAnswer(this)">
+            <div class="question">8. តើ constructor ក្នុង C++ គឺជាអ្វី?</div>
+            <div class="answer">Constructor គឺជាមុខងារជាធាតុពិសេសដែលត្រូវបានអូសគ្នាជាមួយនឹងវត្ថុដែលបានបង្កើត។</div>
+        </div>
+        <div class="qa-item" onclick="toggleAnswer(this)">
+            <div class="question">9. តើ destructor ក្នុង C++ គឺជាអ្វី?</div>
+            <div class="answer">Destructor គឺជាមុខងារជាធាតុពិសេសដែលត្រូវបានអូសគ្នានៅពេលដែលវត្ថុត្រូវបានក្លាយជាធាតុរលួយ ដើម្បីបញ្ចេញធនធាន។</div>
+        </div>
+        <div class="qa-item" onclick="toggleAnswer(this)">
+            <div class="question">10. តើ pointer ក្នុង C++ គឺជាអ្វី?</div>
+            <div class="answer">Pointer គឺជាការប្រើប្រាស់មួយដែលរក្សាទុកអាសយដ្ឋានសារពើភ័ណ្ឌនៃការប្រើប្រាស់មួយទៀត។</div>
+        </div>
+        <div class="qa-item" onclick="toggleAnswer(this)">
+            <div class="question">11. តើការបែងចែកអង្គចងចាំយ៉ាងចល័តគឺជាអ្វី?</div>
+            <div class="answer">Dynamic memory allocation អនុញ្ញាតឱ្យកម្មវិធីទាមទារ និងលុបអង្គចងចាំនៅពេលវេលាអនុវត្តដោយប្រើ operators ដូចជា new និង delete។</div>
+        </div>
+        <div class="qa-item" onclick="toggleAnswer(this)">
+            <div class="question">12. តើ templates ក្នុង C++ គឺជាអ្វី?</div>
+            <div class="answer">Templates អនុញ្ញាតឱ្យ functions និង classes អនុវត្តជាមួយប្រភេទទិន្នន័យទូទៅ ដែលអនុញ្ញាតឱ្យមានការប្រើប្រាស់កូដសម្រាប់ប្រភេទទិន្នន័យផ្សេងៗគ្នា។</div>
+        </div>
+        <div class="qa-item" onclick="toggleAnswer(this)">
+            <div class="question">13. តើ Array ក្នុង C++ គឺជាអ្វី?</div>
+            <div class="answer">Array គឺជាការប្រមូលផ្តុំរបស់ធាតុដែលមានប្រភេទដូចគ្នា ដែលបានរក្សាទុកនៅក្នុងទីតាំងអង្គចងចាំដែលជាប់គ្នា។</div>
+        </div>
+        <div class="qa-item" onclick="toggleAnswer(this)">
+            <div class="question">14. តើ Function ​ក្នុង C++ គឺជាអ្វី?</div>
+            <div class="answer">Function គឺជាភាគីកូដដែលអនុវត្តការងារមួយពិសេស និងអាចត្រូវបានប្រើឡើងវិញនៅក្នុងកម្មវិធី។</div>
+        </div>
+        <div class="qa-item" onclick="toggleAnswer(this)">
+            <div class="question">15. តើភាពខុសគ្នារវាង overloading និង overriding ក្នុង C++ គឺជាអ្វី?</div>
+            <div class="answer">Overloading អនុញ្ញាតឱ្យមានមុខងារជាច្រើនដែលមានឈ្មោះដូចគ្នា ប៉ុន្តែមានអត្តសញ្ញាណផ្សេងគ្នា ខណៈដែល overriding គឺជាការកំណត់មុខងារមួយក្នុង class មួយ ដែលមានអត្ថន័យថាបានអនុញ្ញាតឱ្យបណ្តុះចំណេះដឹង។</div>
+        </div>
+        <div class="qa-item" onclick="toggleAnswer(this)">
+            <div class="question">16. តើ Exception handling ក្នុង C++ គឺជាអ្វី?</div>
+            <div class="answer">Exception handling គឺជាវិធីសាស្ត្រដើម្បីគ្រប់គ្រងកំហុសពេលអនុវត្តដោយប្រើ try, catch, និង throw។</div>
+        </div>
+        <div class="qa-item" onclick="toggleAnswer(this)">
+            <div class="question">17. តើ Access specifiers ក្នុង C++ គឺជាអ្វី?</div>
+            <div class="answer">Access specifiers នៅក្នុង C++ គឺមាន public, private, និង protected ដែលគ្រប់គ្រងការចូលប្រើសមាជិក class។</div>
+        </div>
+        <div class="qa-item" onclick="toggleAnswer(this)">
+            <div class="question">18. តើភាពខុសគ្នារវាង struct និង class នៅក្នុង C++ គឺជាអ្វី?</div>
+            <div class="answer">នៅក្នុង C++, struct members គឺជាសាធារណៈដោយលំនាំ ខណៈដែល class members គឺជាឯកជនដោយលំនាំ។</div>
+        </div>
+        <div class="qa-item" onclick="toggleAnswer(this)">
+            <div class="question">19. តើ Reference variable ក្នុង C++ គឺជាអ្វី?</div>
+            <div class="answer">Reference variable គឺជាការទៅរកអាសយដ្ឋាននៃអថេរ ដែលអនុញ្ញាតឱ្យធ្វើការផ្លាស់ប្តូរទិន្នន័យដោយមិនប្រើ pointer។</div>
+        </div>
+        <div class="qa-item" onclick="toggleAnswer(this)">
+            <div class="question">20. តើ STL (Standard Template Library) គឺជាអ្វី?</div>
+            <div class="answer">STL គឺជាបណ្ណាល័យមួយនៅក្នុង C++ ដែលផ្ដល់ជូននូវមុខងារដែលអាចធ្វើការទាំងអស់ដូចជា containers, iterators, និង algorithms។</div>
+        </div>
+    </section>
+    
+    
+    
+    
+    <footer style="background-color: #0077cc">
+        <br><br>
+        <p class="footer-text">
+          <a class="footer-link"   href="">Contact Us</a>
+          |
+          <a class="footer-link"  href="#">FAQ</a>
+          |
+          <a class="footer-link" href="https://www.tiktok.com/@haksimpledev?lang=en">TikTok</a>
+          |
+          <a class="footer-link"  href="">Reviews</a>
+        <p>© Copyright 2024 All rights reserved by Thy Muoyhak</p><br><br>
+      </footer>
+    <script>
+        function toggleAnswer(item) {
+            const answer = item.querySelector('.answer');
+            // Toggle the display property of the answer
+            if (answer.style.display === "none" || answer.style.display === "") {
+                answer.style.display = "block"; // Show the answer
+            } else {
+                answer.style.display = "none"; // Hide the answer
+            }
+        }
+    </script>
+    </body>
+    </html>

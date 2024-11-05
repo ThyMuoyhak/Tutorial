@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>សិក្សា Python - ពីមូលដ្ឋានដល់ OOP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Khmer&family=Koulen&family=Noto+Sans+Khmer:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>សិក្សា Python - ពីមូលដ្ឋានដល់ OOP</header>
+    <div class="container">
+        <aside>
+            <h2 style="color: #0077cc;">និស្សិត ឆ្នាំទី២ៈ ធី មួយហាក់</h2>
+            <img width="100%" src="./img/photo_2024-09-06_21-28-43.jpg" alt="">
+            <button id="toggleSidebarButton">បញ្ជី មេរៀន Python Programming</button>
+            <div id="sidebarContent">
+                <h2 style="color: red;">មាតិកា</h2>
+                <ul>
+                    <li><a href="#about">អំពី Python</a></li>
+                    <li><a href="#basics">មូលដ្ឋាន Python</a>
+                        <ul>
+                            <li><a href="#first">កូដដំបូង</a></li>
+                            <li><a href="#datatype">ប្រភេទទិន្នន័យ និងអថេរ</a></li>
+                            <li><a href="#input-output">ការបញ្ចូល និងបង្ហាញទិន្នន័យ</a></li>
+                            <li><a href="#operators">ប្រមាណវិធី</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#control-structures">គ្រប់គ្រងលូប និងលក្ខខណ្ឌ</a></li>
+                    <li><a href="#functions">មុខងារ (Function)</a></li>
+                    <li><a href="#arrays">អារេ (Array)</a></li>
+                    <li><a href="#oop-overview">Object-Oriented Programming (OOP)</a></li>
+                    
+                </ul>
+            </div>
+            <a href="#question"><button id="home">សំណួរ និង ចម្លើយ</button></a>
+            <a href="index.html"><button id="home">Back to Home page</button></a>
+        </aside>
+
+        <script>
+            const toggleButton = document.getElementById('toggleSidebarButton');
+            const sidebarContent = document.getElementById('sidebarContent');
+        
+            toggleButton.addEventListener('click', () => {
+                if (sidebarContent.style.display === 'none' || sidebarContent.style.display === '') {
+                    sidebarContent.style.display = 'block';
+                    toggleButton.textContent = 'មិនចង់បង្ហាញមេរៀន';
+                } else {
+                    sidebarContent.style.display = 'none';
+                    toggleButton.textContent = 'បង្ហាញមេរៀន';
+                }
+            });
+        </script>
+
+    <main>
+        <!-- About Section -->
+        <section id="about">
+            <h2>អំពី Python</h2>
+            <p>Python គឺជាភាសាកម្មវិធីមួយដែលមានប្រជាប្រិយភាពសម្រាប់ការអភិវឌ្ឍន៍កម្មវិធី និងការវិភាគទិន្នន័យ។ វាជាសិល្បៈនៃការកំណត់និងដំណើរការប្រព័ន្ធមួយដោយប្រើលទ្ធផល និង OOP។</p>
+        </section>
+        
+        <!-- Basics Section -->
+        <section id="basics">
+            <h2>មូលដ្ឋាន Python</h2>
+
+            <!-- Basic Program Structure -->
+            <div class="lesson">
+                <h3 id="first">កូដដំបូង</h3>
+                <p>យើងចាប់ផ្ដើម Python ដោយប្រើ <code>print()</code>។</p>
+                <pre><code>print("សួស្តី ពិភពលោក!")</code></pre>
+                <p><strong>លទ្ធផល:</strong></p>
+                <pre><code>សួស្តី ពិភពលោក!</code></pre>
+            </div>
+
+            <!-- Variables and Data Types -->
+            <div class="lesson">
+                <h3 id="datatype">ប្រភេទទិន្នន័យ និងអថេរ</h3>
+                <p>ប្រភេទទិន្នន័យមានដូចជា <code>int</code>, <code>float</code>, <code>str</code> ។ ឧទាហរណ៍៖</p>
+                <pre><code>age = 25
+height = 1.75
+name = "Chantha"
+print(f"ឈ្មោះ: {name}, អាយុ: {age}, កម្ពស់: {height} ម៉ែត្រ")</code></pre>
+                <p><strong>លទ្ធផល:</strong></p>
+                <pre><code>ឈ្មោះ: Chantha, អាយុ: 25, កម្ពស់: 1.75 ម៉ែត្រ</code></pre>
+            </div>
+
+            <!-- Input and Output -->
+            <div id="input-output" class="lesson">
+                <h3>ការបញ្ចូល និងបង្ហាញទិន្នន័យ</h3>
+                <p>ប្រើ <code>input()</code> ដើម្បីបញ្ចូលទិន្នន័យ និង <code>print()</code> ដើម្បីបង្ហាញទិន្នន័យ។</p>
+                <pre><code>age = int(input("បញ្ចូលអាយុរបស់អ្នក: "))
+print(f"អាយុរបស់អ្នកគឺ {age}")</code></pre>
+                <p><strong>លទ្ធផល:</strong></p>
+                <pre><code>បញ្ចូលអាយុរបស់អ្នក: 30
+អាយុរបស់អ្នកគឺ 30</code></pre>
+            </div>
+
+            <!-- Arithmetic Operators -->
+            <div id="operators" class="lesson">
+                <h2>ប្រមាណវិធី និង ប្រមាណវិធីផ្សេងៗ</h2>
+            
+                <!-- Arithmetic Operators -->
+                <h3>ប្រមាណវិធីគណនា (Arithmetic Operators)</h3>
+                <p>ប្រមាណវិធីសម្រាប់គណនា: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>**</code>, <code>//</code>.</p>
+                <pre><code>a = 10
+            b = 3
+            print("ផលបូក:", a + b)         # Addition
+            print("ផលគុណ:", a * b)          # Multiplication
+            print("ផ្លូវចែក:", a / b)        # Division
+            print("ចែកសម្រាប់បច្ចុប្បន្ន:", a // b)  # Floor Division
+            print("សំណល់:", a % b)          # Modulus
+            print("ថាមពល:", a ** b)         # Exponentiation</code></pre>
+                <p><strong>លទ្ធផល:</strong></p>
+                <pre><code>ផលបូក: 13
+            ផលគុណ: 30
+            ផ្លូវចែក: 3.3333333333333335
+            ចែកសម្រាប់បច្ចុប្បន្ន: 3
+            សំណល់: 1
+            ថាមពល: 1000</code></pre>
+            
+                <!-- Comparison Operators -->
+                <h3>ប្រមាណវិធីប្រៀបធៀប (Comparison Operators)</h3>
+                <p>ប្រមាណវិធីសម្រាប់ប្រៀបធៀប: <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>.</p>
+                <pre><code>a = 10
+            b = 5
+            print("អតិថិជនដូចគ្នា:", a == b)
+            print("អតិថិជនមិនដូចគ្នា:", a != b)
+            print("អតិថិជនធំជាង:", a > b)
+            print("អតិថិជនតិចជាង:", a < b)
+            print("អតិថិជនធំឬស្មើ:", a >= b)
+            print("អតិថិជនតិចឬស្មើ:", a <= b)</code></pre>
+                <p><strong>លទ្ធផល:</strong></p>
+                <pre><code>អតិថិជនដូចគ្នា: False
+            អតិថិជនមិនដូចគ្នា: True
+            អតិថិជនធំជាង: True
+            អតិថិជនតិចជាង: False
+            អតិថិជនធំឬស្មើ: True
+            អតិថិជនតិចឬស្មើ: False</code></pre>
+            
+                <!-- Logical Operators -->
+                <h3>ប្រមាណវិធីទំនាក់ទំនង (Logical Operators)</h3>
+                <p>ប្រមាណវិធីសម្រាប់ទំនាក់ទំនង: <code>and</code>, <code>or</code>, <code>not</code>.</p>
+                <pre><code>a = True
+            b = False
+            print("a និង b:", a and b)
+            print("a ឬ b:", a or b)
+            print("មិន a:", not a)</code></pre>
+                <p><strong>លទ្ធផល:</strong></p>
+                <pre><code>a និង b: False
+            a ឬ b: True
+            មិន a: False</code></pre>
+            
+                <!-- Assignment Operators -->
+                <h3>ប្រមាណវិធីបញ្ជា (Assignment Operators)</h3>
+                <p>ប្រមាណវិធីសម្រាប់បញ្ជា: <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code>.</p>
+                <pre><code>a = 5
+            a += 3   # a = a + 3
+            print("a បន្ទាប់ពីបន្ថែម 3:", a)
+            a *= 2   # a = a * 2
+            print("a បន្ទាប់ពីគុណ 2:", a)</code></pre>
+                <p><strong>លទ្ធផល:</strong></p>
+                <pre><code>a បន្ទាប់ពីបន្ថែម 3: 8
+            a បន្ទាប់ពីគុណ 2: 16</code></pre>
+            
+                <!-- Bitwise Operators -->
+                <h3>ប្រមាណវិធីប៊ីត (Bitwise Operators)</h3>
+                <p>ប្រមាណវិធីសម្រាប់ប្រើប្រាស់ប្រមាណវិធីប៊ីត: <code>&amp;</code>, <code>|</code>, <code>^</code>, <code>~</code>, <code>&lt;&lt;</code>, <code>&gt;&gt;</code>.</p>
+                <pre><code>a = 10  # 1010 in binary
+            b = 4   # 0100 in binary
+            print("AND:", a & b)     # 0
+            print("OR:", a | b)      # 14
+            print("XOR:", a ^ b)     # 14
+            print("NOT:", ~a)        # -11
+            print("Left Shift:", a << 1)  # 20
+            print("Right Shift:", a >> 1) # 5</code></pre>
+                <p><strong>លទ្ធផល:</strong></p>
+                <pre><code>AND: 0
+            OR: 14
+            XOR: 14
+            NOT: -11
+            Left Shift: 20
+            Right Shift: 5</code></pre>
+            
+                <!-- Identity Operators -->
+                <h3>ប្រមាណវិធីសម្គាល់ (Identity Operators)</h3>
+                <p>ប្រមាណវិធីសម្រាប់សម្គាល់: <code>is</code>, <code>is not</code>.</p>
+                <pre><code>a = [1, 2, 3]
+            b = a
+            c = a[:]
+            print("a ជាមួយ b:", a is b)      # True
+            print("a ជាមួយ c:", a is c)      # False
+            print("a មិនមែនជាមួយ c:", a is not c)  # True</code></pre>
+                <p><strong>លទ្ធផល:</strong></p>
+                <pre><code>a ជាមួយ b: True
+            a ជាមួយ c: False
+            a មិនមែនជាមួយ c: True</code></pre>
+            
+                <!-- Membership Operators -->
+                <h3>ប្រមាណវិធីសមាជិក (Membership Operators)</h3>
+                <p>ប្រមាណវិធីសម្រាប់សមាជិក: <code>in</code>, <code>not in</code>.</p>
+                <pre><code>fruits = ["ប៉ោម", "បង្គា", "អំពិល"]
+            print("ប៉ោមនៅក្នុងផ្ទាំងទេ:", "ប៉ោម" in fruits)   # True
+            print("ស្រទូសមិននៅក្នុងផ្ទាំងទេ:", "ស្រទូស" not in fruits)  # True</code></pre>
+                <p><strong>លទ្ធផល:</strong></p>
+                <pre><code>ប៉ោមនៅក្នុងផ្ទាំងទេ: True
+            ស្រទូសមិននៅក្នុងផ្ទាំងទេ: True</code></pre>
+            </div>
+            
+        </section>
+
+        <!-- Control Structures Section -->
+        <section id="control-structures">
+            <h2>គ្រប់គ្រងលូប និងលក្ខខណ្ឌ</h2>
+
+            <!-- If Statement -->
+            <div class="lesson">
+                <h3>If Statement</h3>
+                <p>ប្រើ if ដើម្បីត្រួតពិនិត្យលទ្ធផល</p>
+                <pre><code>score = 90
+if score >= 80:
+    print("ជាប់!")
+else:
+    print("សូមព្យាយាមម្តងទៀត!")</code></pre>
+                <p><strong>លទ្ធផល:</strong></p>
+                <pre><code>ជាប់!</code></pre>
+            </div>
+
+            <!-- Control Structures Section -->
+
+            <!-- switch -->
+            <h2>Switch</h2>
+            <p>Python គ្មានការប្រើប្រាស់ switch តែអាចប្រើ if-elif-else ផ្ទុយទៅវិញ។</p>
+            <pre><code>day = 3
+
+if day == 1:
+    print("ថ្ងៃច័ន្ទ")
+elif day == 2:
+    print("ថ្ងៃអង្គារ")
+elif day == 3:
+    print("ថ្ងៃពុធ")
+elif day == 4:
+    print("ថ្ងៃព្រហស្បតិ៍")
+elif day == 5:
+    print("ថ្ងៃសុក្រ")
+elif day == 6:
+    print("ថ្ងៃសៅរ៍")
+elif day == 7:
+    print("ថ្ងៃអាទិត្យ")
+else:
+    print("មិនមែនជាថ្ងៃដែលត្រឹមត្រូវទេ")</code></pre>
+            <p><strong>លទ្ធផល:</strong></p>
+            <pre><code>ថ្ងៃពុធ</code></pre>
+            <!-- For Loop -->
+ <!-- For Loop -->
+<div class="lesson">
+    <h3>For Loop</h3>
+    <p>បញ្ជី <code>for</code> ត្រូវបានប្រើសម្រាប់កំណត់ចំនួនតំណរ ដើម្បីអនុវត្តនូវកូដលើធាតុគ្រប់សំរាប់ក្នុងកំណត់។ នៅក្នុងករណីនេះ <code>range(5)</code> មានន័យថានឹងចាប់ផ្តើមពី ០ ដល់ ៤ (មិនរាប់ ៥)។</p>
+    <pre><code>for i in range(5):
+    print(i)</code></pre>
+    <p><strong>លទ្ធផល:</strong></p>
+    <pre><code>0
+1
+2
+3
+4</code></pre>
+</div>
+
+<!-- While Loop -->
+<div class="lesson">
+    <h3>While Loop</h3>
+    <p>បញ្ជី <code>while</code> អនុញ្ញាតឱ្យអ្នកអនុវត្តនូវកូដរហូតដល់លក្ខខណ្ឌមួយត្រូវបានបំពេញ។ នៅក្នុងករណីនេះ <code>count < 5</code> មែនទែននឹងធ្វើឱ្យប្រើប្រាស់បន្ទាត់ <code>print(count)</code> រាល់ពេលដែល <code>count</code> តិចជាង ៥។</p>
+    <pre><code>count = 0
+while count < 5:
+    print(count)
+    count += 1</code></pre>
+    <p><strong>លទ្ធផល:</strong></p>
+    <pre><code>0
+1
+2
+3
+4</code></pre>
+</div>
+
+<!-- Do While Loop -->
+<div class="lesson">
+    <h3>Do While Loop</h3>
+    <p>Python មិនមានបញ្ជី <code>do while</code> ដែលបានកំណត់ទេ ប៉ុន្តែអ្នកអាចសមីការពីវាប្រើប្រាស់ <code>while</code> បញ្ជី។ ក្នុង <code>do while</code> បញ្ជី ការចាប់ផ្ដើមនៃកូដត្រូវបានអនុវត្តយ៉ាងតិចមួយលើសពីមុន មុនពេលដែលលក្ខណ្ឌត្រូវបានពិនិត្យ។</p>
+    <pre><code>count = 0
+while True:
+    print(count)
+    count += 1
+    if count >= 5:
+        break</code></pre>
+    <p><strong>លទ្ធផល:</strong></p>
+    <pre><code>0
+1
+2
+3
+4</code></pre>
+</div>
+
+
+        </section>
+
+        <!-- Functions Section -->
+        <section id="functions">
+            <h2>មុខងារ (Function)</h2>
+        
+            <h3>មុខងារដែលត្រឡប់ (Returning Functions)</h3>
+            <p>មុខងារ​ដែល​ត្រឡប់​តម្លៃ:</p>
+            <pre><code>def add(a, b):
+            return a + b
+        
+        result = add(5, 3)
+        print(result)  # លទ្ធផល: 8</code></pre>
+        
+            <h3>មុខងារដែលមិនត្រឡប់ (Non-Returning Functions)</h3>
+            <p>មុខងារ​ដែល​មិន​ត្រឡប់​តម្លៃ:</p>
+            <pre><code>def greet(name):
+            print(f"សួស្តី {name}!")
+        
+        greet("Chantha")  # លទ្ធផល: សួស្តី Chantha!</code></pre>
+        
+            <h3>មុខងារដែលមានអារម្មណ៍ (Functions with Parameters)</h3>
+            <p>មុខងារដែលមានអារម្មណ៍:</p>
+            <pre><code>def multiply(a, b):
+            return a * b
+        
+        result = multiply(4, 5)
+        print(result)  # លទ្ធផល: 20</code></pre>
+        
+            <h3>មុខងារដែលគ្មានអារម្មណ៍ (Functions without Parameters)</h3>
+            <p>មុខងារដែលគ្មានអារម្មណ៍:</p>
+            <pre><code>def display_message():
+            print("Hello, World!")
+        
+        display_message()  # លទ្ធផល: Hello, World!</code></pre>
+        
+        </section>
+        
+
+        <!-- Arrays Section -->
+<section id="arrays">
+    <h2>អារេ (Array)</h2>
+    <p>អារេនៅក្នុង Python ប្រើប្រាស់សម្រាប់រក្សាទុកធាតុជាច្រើន។</p>
+
+    <h3>អារេតែមួយ (Single-Dimensional Array)</h3>
+    <p>អារេតែមួយគឺជាការប្រមូលផ្តុំរបស់ធាតុទាំងអស់ដែលមានប្រភេទដូចគ្នា។</p>
+    <pre><code>fruits = ["ប៉ោម", "ខេមរ", "អណ្ដូង"]
+print(fruits[0])  # បង្ហាញធាតុដំបូង</code></pre>
+    <p><strong>លទ្ធផល:</strong></p>
+    <pre><code>ប៉ោម</code></pre>
+
+    <h3>អារេច្រើន (Multi-Dimensional Array)</h3>
+    <p>អារេច្រើនគឺជាអារេដែលមានអារេផ្សេងទៀតនៅក្នុងវា។</p>
+    <pre><code>matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+print(matrix[1][2])  # បង្ហាញធាតុក្នុងជួរ 1 និងជួរ 2</code></pre>
+    <p><strong>លទ្ធផល:</strong></p>
+    <pre><code>6</code></pre>
+</section>
+
+
+        <!-- OOP Overview Section -->
+<section id="oop-overview">
+    <h2>Object-Oriented Programming (OOP)</h2>
+    <p>កម្មវិធីមើលមុខវត្ថុ (OOP) គឺជាវិធីសាស្ត្រដើម្បីអភិវឌ្ឍកម្មវិធីដោយប្រើ class និង object។ វាមានលក្ខណៈសំខាន់ៗដែលរួមមាន:</p>
+
+    <!-- Class and Object -->
+    <h3>Class និង Object</h3>
+    <p>Class គឺជាប្រភេទទិន្នន័យដែលអ្នកបង្កើតឡើង ហើយ Object គឺជាករណីនៃ Class។</p>
+    <pre><code>class Dog:
+    def __init__(self, name):
+        self.name = name
+
+    def bark(self):
+        return "Woof!"
+
+my_dog = Dog("Buddy")
+print(my_dog.name)
+print(my_dog.bark())</code></pre>
+    <p><strong>លទ្ធផល:</strong></p>
+    <pre><code>Buddy
+Woof!</code></pre>
+
+    <!-- Inheritance -->
+    <h3>(Inheritance)</h3>
+    <p>Inheritance អនុញ្ញាតឱ្យ Class ថ្មីទទួលសេរីភាពពី Class ដែលមានស្រាប់។</p>
+    <pre><code>class Animal:
+    def speak(self):
+        return "Some sound"
+
+class Cat(Animal):
+    def speak(self):
+        return "Meow!"
+
+my_cat = Cat()
+print(my_cat.speak())</code></pre>
+    <p><strong>លទ្ធផល:</strong></p>
+    <pre><code>Meow!</code></pre>
+
+    <!-- Polymorphism -->
+    <h3>(Polymorphism)</h3>
+    <p>Polymorphism អនុញ្ញាតឱ្យប្រើប្រាស់មុខងារដូចគ្នានៅក្នុង Class ច្រើន។</p>
+    <pre><code>def animal_sound(animal):
+    print(animal.speak())
+
+animal_sound(my_dog)  # Dog
+animal_sound(my_cat)  # Cat</code></pre>
+    <p><strong>លទ្ធផល:</strong></p>
+    <pre><code>Woof!
+Meow!</code></pre>
+
+    <!-- Encapsulation -->
+    <h3>(Encapsulation)</h3>
+    <p>Encapsulation គឺជាការបង្រួមទិន្នន័យ និងមុខងារ។ វាជួយក្នុងការពារ និងគ្រប់គ្រងអត្ថបទ។</p>
+    <pre><code>class BankAccount:
+    def __init__(self, balance=0):
+        self.__balance = balance  # Private attribute
+
+    def deposit(self, amount):
+        self.__balance += amount
+
+    def get_balance(self):
+        return self.__balance
+
+account = BankAccount()
+account.deposit(100)
+print(account.get_balance())</code></pre>
+    <p><strong>លទ្ធផល:</strong></p>
+    <pre><code>100</code></pre>
+
+    <!-- Abstraction -->
+    <h3>(Abstraction)</h3>
+    <p>Abstraction គឺជាការបង្ហាញផែនការអោយអ្នកប្រើដោយមិនបង្ហាញអ្វីដែលកើតឡើងនៅក្នុងដំណើរការនោះ។</p>
+    <pre><code>from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+rectangle = Rectangle(5, 10)
+print(rectangle.area())</code></pre>
+    <p><strong>លទ្ធផល:</strong></p>
+    <pre><code>50</code></pre>
+</section>
+
+            <!-- Exception Handling Section -->
+            <section id="exceptions">
+                <h2>ការគ្រប់គ្រងកំហុស (Exception Handling)</h2>
+                <p>ការគ្រប់គ្រងកំហុសក្នុង Python អាចធ្វើបានដោយប្រើ <code>try</code> និង <code>except</code>។</p>
+                <pre><code>try:
+        num = int(input("បញ្ចូលលេខ: "))
+        print("លេខដែលបញ្ចូលគឺ:", num)
+    except ValueError:
+        print("មិនមែនជាអលេខទេ!")</code></pre>
+                <p><strong>លទ្ធផល:</strong></p>
+                <pre><code>បញ្ចូលលេខ: abc
+    មិនមែនជាអលេខទេ!</code></pre>
+            </section>
+    
+            <!-- File Handling Section -->
+            <section id="file-handling">
+                <h2>ការគ្រប់គ្រងឯកសារ (File Handling)</h2>
+                <p>Python អាចអាន និងសរសេរ​ឯកសារបាន។</p>
+                <pre><code># សរសេរ​ទិន្នន័យទៅឯកសារ
+    with open("output.txt", "w") as file:
+        file.write("សួស្តី ពិភពលោក!")
+    
+    # អានទិន្នន័យពីឯកសារ
+    with open("output.txt", "r") as file:
+        content = file.read()
+        print(content)</code></pre>
+                <p><strong>លទ្ធផល:</strong></p>
+                <pre><code>សួស្តី ពិភពលោក!</code></pre>
+            </section>
+    
+            <!-- List Comprehensions Section -->
+            <section id="list-comprehensions">
+                <h2>ការបង្កើតអារេដោយប្រើ List Comprehensions</h2>
+                <p>List comprehensions ជាគន្លងលឿនសម្រាប់បង្កើតអារេ។</p>
+                <pre><code>squares = [x**2 for x in range(10)]
+    print(squares)</code></pre>
+                <p><strong>លទ្ធផល:</strong></p>
+                <pre><code>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</code></pre>
+            </section>
+    
+            <!-- Modules and Packages Section -->
+            <section id="modules-packages">
+                <h2>ម៉ូឌុល និងផាក (Modules and Packages)</h2>
+                <p>Python អនុញ្ញាតឱ្យអ្នកប្រើម៉ូឌុលដើម្បីធ្វើឲ្យកូដរឹងមាំ និងប្រកបដោយភាពចម្រុះ។</p>
+                <pre><code># importing a module
+    import math
+    
+    result = math.sqrt(16)
+    print(result)</code></pre>
+                <p><strong>លទ្ធផល:</strong></p>
+                <pre><code>4.0</code></pre>
+            </section>
+    
+            <!-- Lambda Functions Section -->
+            <section id="lambda-functions">
+                <h2>មុខងារលាបដា (Lambda Functions)</h2>
+                <p>Lambda functions គឺជាមុខងារងាយៗដែលមិនត្រូវការឈ្មោះ។</p>
+                <pre><code>multiply = lambda x, y: x * y
+    print(multiply(5, 3))</code></pre>
+                <p><strong>លទ្ធផល:</strong></p>
+                <pre><code>15</code></pre>
+            </section>
+    
+            <!-- Decorators Section -->
+            <section id="decorators">
+                <h2>អាដេកទ័រ (Decorators)</h2>
+                <p>Decorators គឺជាមុខងារដែលអាចបន្ថែមអ្វីមួយទៅមុខងារផ្សេង។</p>
+                <pre><code>def decorator_function(original_function):
+        def wrapper_function():
+            print("Decorator executed this before {}".format(original_function.__name__))
+            return original_function()
+        return wrapper_function
+    
+    @decorator_function
+    def display():
+        return "Display function executed!"
+    
+    print(display())</code></pre>
+                <p><strong>លទ្ធផល:</strong></p>
+                <pre><code>Decorator executed this before display
+    Display function executed!</code></pre>
+            </section>
+    
+            <!-- Conclusion Section -->
+            <section id="question">
+                <h2>សំណួរ និង ចម្លើយ Python</h2>
+                <div class="qa-item" onclick="toggleAnswer(this)">
+                    <div class="question">1. Python គឺអ្វី?</div>
+                    <div class="answer">Python គឺជាសាស្ត្រាសំរាប់កម្មវិធី និងអភិវឌ្ឍន៍ដែលមានសមត្ថភាពខ្ពស់។ វាត្រូវបានប្រើសម្រាប់ការអភិវឌ្ឍន៍វេបសាយ, អង់ត្រូវនិងកម្មវិធី, វិទ្យាសាស្ត្រ និងការវិភាគទិន្នន័យ។</div>
+                </div>
+                <div class="qa-item" onclick="toggleAnswer(this)">
+                    <div class="question">2. តើ Python គាំទ្រដល់ OOP ឬអត់?</div>
+                    <div class="answer">បាទ, Python គាំទ្រទៅ OOP (កម្មវិធីមួយគ្នា) ដូចជាការបង្កើត class និង object។</div>
+                </div>
+                <div class="qa-item" onclick="toggleAnswer(this)">
+                    <div class="question">3. តើតម្រុយខ្លះដែល Python មាន?</div>
+                    <div class="answer">Python មានតម្រុយគ្នាច្រើនដូចជា: + (បូក), - (កាត់), * (គុណ), / (ចែក) និង % (សំណល់)។</div>
+                </div>
+                <div class="qa-item" onclick="toggleAnswer(this)">
+                    <div class="question">4. តើ Python អាចប្រើប្រាស់សម្រាប់អ្វីខ្លះ?</div>
+                    <div class="answer">Python អាចប្រើប្រាស់សម្រាប់ការអភិវឌ្ឍន៍វេបសាយ, វិស្វកម្ម, សិក្សាគណិតវិទ្យា, ស្រាវជ្រាវវិទ្យាសាស្ត្រ, និងការវិភាគទិន្នន័យ។</div>
+                </div>
+                <div class="qa-item" onclick="toggleAnswer(this)">
+                    <div class="question">5. តើ Python មានមុខងារនៅក្នុងការចងក្រងទិន្នន័យយ៉ាងដូចម្តេច?</div>
+                    <div class="answer">Python មានមុខងារច្រើនដូចជា list, tuple, dictionary និង set ដែលអាចប្រើប្រាស់ក្នុងការចងក្រងទិន្នន័យ។</div>
+                </div>
+                <div class="qa-item" onclick="toggleAnswer(this)">
+                    <div class="question">6. តើ Python មានគណនីផងដែរឬទេ?</div>
+                    <div class="answer">បាទ, Python អាចធ្វើការគណនាទាំងស្តង់ដារនិងទាំងខ្ពស់ដោយប្រើប្រាស់ប្រមាណវិធីផ្សេងៗ។</div>
+                </div>
+                <div class="qa-item" onclick="toggleAnswer(this)">
+                    <div class="question">7. តើ Python អាចធ្វើការអភិវឌ្ឍន៍វេបសាយយ៉ាងដូចម្តេច?</div>
+                    <div class="answer">Python អាចប្រើប្រាស់សម្រាប់ការអភិវឌ្ឍន៍វេបសាយដោយប្រើប្រាស់ម៉ូឌុលដូចជា Flask និង Django ដែលអនុញ្ញាតឱ្យបង្កើតកម្មវិធីវេបសាយបានយ៉ាងងាយស្រួល។</div>
+                </div>
+                <div class="qa-item" onclick="toggleAnswer(this)">
+                    <div class="question">8. តើ Python មានការគាំទ្រដល់បណ្ណាល័យផ្សេងៗទៀតឬទេ?</div>
+                    <div class="answer">បាទ, Python មានការគាំទ្របណ្ណាល័យជាច្រើនដូចជា NumPy សម្រាប់ការគណនា, Pandas សម្រាប់ការវិភាគទិន្នន័យ, និង Matplotlib សម្រាប់ការធ្វើក្រាហ្វិក។</div>
+                </div>
+                <div class="qa-item" onclick="toggleAnswer(this)">
+                    <div class="question">9. តើ Python មានប្រភេទទិន្នន័យណាខ្លះ?</div>
+                    <div class="answer">Python មានប្រភេទទិន្នន័យដូចជា int (ចំនួនគត់), float (ចំនួនទឹក), str (អក្សរ), និង bool (តម្លៃពិត/ក្លែងក្លាយ)។</div>
+                </div>
+                <div class="qa-item" onclick="toggleAnswer(this)">
+                    <div class="question">10. តើខ្ញុំអាចស្វែងយល់ពី Python នៅឯណា?</div>
+                    <div class="answer">អ្នកអាចស្វែងយល់ពី Python តាមរយៈវេបសាយសិក្សាផ្សេងៗ, ការបណ្ដុះបណ្ដាល, សៀវភៅ និងវីដេអូសិក្សា។</div>
+                </div>
+            </section>
+            <footer style="background-color: #0077cc">
+                <br><br>
+                <p class="footer-text">
+                  <a class="footer-link"   href="">Contact Us</a>
+                  |
+                  <a class="footer-link"  href="#">FAQ</a>
+                  |
+                  <a class="footer-link" href="https://www.tiktok.com/@haksimpledev?lang=en">TikTok</a>
+                  |
+                  <a class="footer-link"  href="">Reviews</a>
+                <p>© Copyright 2024 All rights reserved by Thy Muoyhak</p><br><br>
+              </footer>
+        </main>
+        
+    </div>
+    <script>
+        function toggleAnswer(item) {
+            const answer = item.querySelector('.answer');
+            // Toggle the display property of the answer
+            if (answer.style.display === "none" || answer.style.display === "") {
+                answer.style.display = "block"; // Show the answer
+            } else {
+                answer.style.display = "none"; // Hide the answer
+            }
+        }
+    </script>
+    </body>
+    </html>
+    

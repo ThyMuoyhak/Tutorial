@@ -1,0 +1,368 @@
+.koulen-regular {
+    font-family: "Koulen", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+/* Global styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Use flexbox for layout */
+    
+}
+html {
+    scroll-behavior: smooth;
+  }
+
+header {
+    width: 350px;
+    position: fixed;
+    background: #0077cc;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Koulen", serif;
+}
+/* Container layout */
+.container {
+    display: flex; /* Flexbox layout for container */
+    width: 100%; /* Full width for container */
+    flex-grow: 1; /* Allow container to grow to fill space */
+}
+
+/* Sidebar styles */
+aside {
+    width: 250px; /* Fixed width for the sidebar */
+    background-color: #f4f4f4; /* Light grey background */
+    padding: 50px; /* Padding around content */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+    overflow: hidden; /* Hide overflow to prevent scrollbar */
+}
+
+/* Main content styles */
+main {
+    scroll-behavior: smooth;
+    flex: 1; /* Allow main section to grow */
+    padding: 20px; /* Padding for main content */
+    height: calc(100vh - 70px); /* Height to fill viewport minus header */
+    overflow-y: auto; /* Allow scrolling for main content */
+}
+
+/* Section styles */
+section {
+    scroll-behavior: smooth;
+    background: white; /* White background for sections */
+    margin: 20px 0; /* Margin for spacing */
+    padding: 20px; /* Padding for sections */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+/* Headings styles */
+h1, h2, h3 {
+    color: #0077cc; /* Primary color for headings */
+    font-family: "Noto Sans Khmer", sans-serif;
+}
+
+/* Lesson styles */
+.lesson {
+    margin-bottom: 20px; /* Space below lessons */
+}
+
+/* Code block styles */
+pre {
+    background: #eee; /* Light grey background */
+    padding: 10px; /* Padding for code blocks */
+    overflow-x: auto; /* Horizontal scrolling */
+    border-left: 3px solid #0077cc; /* Left border for emphasis */
+}
+
+code {
+    background: #f8f8f8; /* Light background for inline code */
+    padding: 2px 4px; /* Padding for inline code */
+    border-radius: 3px; /* Rounded corners for inline code */
+}
+
+/* Strong text styles */
+strong {
+    color: #ff0000; /* Primary color for strong text */
+    font-family: "Noto Sans Khmer", sans-serif;
+}
+p{
+    font-family: "Khmer", serif;
+}
+
+.footer-link{
+    color: white;
+    text-decoration: none;
+}
+.footer-link:hover{
+    color: red;
+}
+
+/* Footer styles */
+footer {
+    text-align: center; /* Center footer text */
+    padding: 10px; /* Padding for footer */
+    background: #333; /* Dark background for footer */
+    color: white; /* White text color */
+}
+
+/* Aside heading styles */
+aside h2 {
+    font-size: 1.5em; /* Font size for sidebar heading */
+    color: #333; /* Dark color for better contrast */
+    margin-bottom: 15px; /* Space below heading */
+    font-family: "Koulen", serif;
+}
+
+/* Unordered list styles */
+aside ul {
+    list-style-type: none; /* Remove bullet points */
+    padding-left: 0; /* Remove left padding */
+    padding: 10px;
+}
+
+
+/* List item styles */
+aside li {
+    color: #0077cc;
+    margin-bottom: 10px; /* Space between list items */
+    transition: all 0.3s;
+    border: 1px solid black;
+    padding: 1px;
+}
+
+aside li:hover {
+    
+    margin-bottom: 10px; /* Space between list items */
+    transform: scale(1.05);
+    
+}
+
+/* Link styles */
+aside a {
+    text-decoration: none; /* Remove underline from links */
+    color: #0077cc;
+    transition: color 0.3s; /* Smooth color transition */
+    font-family: "Koulen", serif;
+    
+}
+
+aside a:hover{
+    color: red;
+}
+
+#sidebarContent {
+    display: none; /* Hide the content initially */
+    background-color: #ffffff;
+}
+
+/* Style the toggle button */
+#toggleSidebarButton {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: "Koulen", serif;
+    margin-bottom: 10px;
+}
+
+#toggleSidebarButton:hover {
+    background-color: #005fa3;
+}
+
+
+
+/* Nested list styles */
+aside ul ul {
+    margin-left: 20px; /* Indent nested lists */
+    margin-top: 5px; /* Space above nested lists */
+}
+
+/* Nested list item styles */
+aside ul ul li {
+    margin-bottom: 5px; /* Space between nested list items */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack sidebar and main vertically */
+        margin-top: 70px; /* Keep margin for fixed header */
+    }
+
+    aside {
+        width: 75%; /* Sidebar takes full width */
+        margin-bottom: 20px; /* Space below sidebar */
+        height: auto; /* Allow sidebar to adjust height based on content */
+        overflow: hidden; /* Ensure no scrollbar */
+    }
+
+    main {
+        height: auto; /* Allow main content to adjust height */
+    }
+    header{
+        width: 100%;
+    position: fixed;
+    background: #0077cc;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 20px;
+    
+}
+#sidebarContent {
+    display: none; /* Hide the content initially */
+}
+
+/* Style the toggle button */
+#toggleSidebarButton {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: "Koulen", serif;
+    margin-bottom: 10px;
+}
+
+#toggleSidebarButton:hover {
+    background-color: #005fa3;
+}
+}
+
+@media (max-width: 480px) {
+    header{
+        width: 100%;
+    position: fixed;
+    background: #0077cc;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 20px;
+    }
+    h1, h2, h3 {
+        font-size: 1.2em; /* Smaller font size for headings */
+    }
+
+    aside h2 {
+        font-size: 1.2em; /* Smaller font size for sidebar heading */
+    }
+
+    aside {
+        padding: 15px; /* Adjust sidebar padding for mobile */
+    }
+
+    main {
+        padding: 15px; /* Adjust main padding for mobile */
+    }
+}
+
+
+/* Style for the sidebar content area */
+#sidebarContent {
+    max-height: 400px; /* Set max-height for scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding-right: 10px; /* Padding to avoid content overlapping with scrollbar */
+}
+
+/* Scrollbar style for Chrome, Edge, Safari */
+#sidebarContent::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+#sidebarContent::-webkit-scrollbar-track {
+    background: #f4f4f4; /* Background color for scrollbar track */
+    border-radius: 5px;
+}
+
+#sidebarContent::-webkit-scrollbar-thumb {
+    background-color: #0077cc; /* Scrollbar color */
+    border-radius: 5px; /* Rounded scrollbar */
+    border: 2px solid #f4f4f4; /* Space around scrollbar for separation */
+}
+
+/* Scrollbar style for Firefox */
+#sidebarContent {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: #0077cc #f4f4f4; /* Thumb and track colors */
+}
+
+/* Optional: Hover effect on the scrollbar */
+#sidebarContent::-webkit-scrollbar-thumb:hover {
+    background-color: #005fa3; /* Darker color on hover */
+}
+
+
+/* Style the toggle button */
+#home {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: "Koulen", serif;
+    margin-bottom: 10px;
+}
+
+#home:hover {
+    background-color: #005fa3;
+}
+
+
+.qa-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: "Noto Sans Khmer", sans-serif;
+}
+.qa-item:hover {
+    background-color: #e1f5fe;
+}
+.question {
+    font-weight: bold;
+    color: #0077cc;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.answer {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+    display: none; /* Initially hide answers */
+}
+/* Responsive styling for smaller screens */
+@media (max-width: 600px) {
+    header {
+        font-size: 20px;
+    }
+    .question {
+        font-size: 16px;
+    }
+    .answer {
+        font-size: 14px;
+    }
+}
+
